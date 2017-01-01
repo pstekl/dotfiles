@@ -16,6 +16,7 @@ ln -sfv "$DOTFILES_DIR/git/.gitconfig" ~
 ln -sfv "$DOTFILES_DIR/git/.gitignore_global" ~
 ln -sfv "$DOTFILES_DIR/.emacs.d" ~
 ln -sfv "$DOTFILES_DIR/.vimrc" ~
+ln -sfv "$DOTFILES_DIR/.tmux.conf" ~
 #ln -sfv "$DOTFILES_DIR/etc/mackup/.mackup.cfg" ~
 
 

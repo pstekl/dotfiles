@@ -1,5 +1,7 @@
 set number
-syntax on
+syntax off
+
+set visualbell
 
 imap jj <Esc>
 
