@@ -35,6 +35,7 @@ fi
 case "$TERM" in
     xterm-color) color_prompt=yes;;
 esac
+export TERM="xterm-256color"
 
 # uncomment for a colored prompt, if the terminal has the capability; turned
 # off by default to not distract the user: the focus in a terminal window
@@ -115,7 +116,9 @@ fi
 
 PATH=$PATH:/usr/games
 export PATH
+export PATH=/data/software/anaconda3/bin:$PATH
 
+export TERM="xterm-256color"
 
 source ~/dotfiles/git/.git-completion.bash
 source ~/dotfiles/git/.git-prompt.sh
