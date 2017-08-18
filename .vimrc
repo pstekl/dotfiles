@@ -1,4 +1,3 @@
-set number
 syntax off
 
 set visualbell
