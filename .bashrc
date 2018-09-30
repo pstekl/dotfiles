@@ -161,6 +161,10 @@ export PS1=$BLACK"\u@\h"'$(
     else echo "'$CYAN'"$(__git_ps1 " [%s]")
     fi)'$BLACK" \W"$BLACK"\$ "
 
+#disable the bell
+set bell-style none
+xset -b
+
 
 alias gg='git status -s'
 
