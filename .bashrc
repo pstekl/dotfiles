@@ -117,6 +117,7 @@ fi
 PATH=$PATH:/usr/games
 export PATH
 export PATH=/data/software/anaconda3/bin:$PATH
+export PATH=$PATH:/usr/local/sbin:/usr/sbin:/sbin
 
 export TERM="xterm-256color"
 
