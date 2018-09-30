@@ -165,6 +165,8 @@ export PS1=$BLACK"\u@\h"'$(
 set bell-style none
 xset -b
 
+#needed for ctrl-x e   or fc
+export EDITOR=vim
 
 alias gg='git status -s'
 
