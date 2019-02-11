@@ -44,12 +44,12 @@ export TERM="xterm-256color"
 
 if [ -n "$force_color_prompt" ]; then
     if [ -x /usr/bin/tput ] && tput setaf 1 >&/dev/null; then
-	# We have color support; assume it's compliant with Ecma-48
-	# (ISO/IEC-6429). (Lack of such support is extremely rare, and such
-	# a case would tend to support setf rather than setaf.)
-	color_prompt=yes
+        # We have color support; assume it's compliant with Ecma-48
+        # (ISO/IEC-6429). (Lack of such support is extremely rare, and such
+        # a case would tend to support setf rather than setaf.)
+        color_prompt=yes
     else
-	color_prompt=
+        color_prompt=
     fi
 fi
 
@@ -68,7 +68,6 @@ xterm*|rxvt*)
 *)
     ;;
 esac
-
 # enable color support of ls and also add handy aliases
 if [ -x /usr/bin/dircolors ]; then
     test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
@@ -117,15 +116,19 @@ fi
 PATH=$PATH:/usr/games
 export PATH
 export PATH=/data/software/anaconda3/bin:$PATH
-export PATH=$PATH:/usr/local/sbin:/usr/sbin:/sbin
+export PATH=${HOME}/local/bin:$PATH
+
+if [ -z ${LD_LIBRARY_PATH+x} ]; then
+    export LD_LIBRARY_PATH=${HOME}/local/lib
+else
+    export LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:${HOME}/local/lib
+fi
+
 
 export TERM="xterm-256color"
 
-source ~/dotfiles/git/.git-completion.bash
-source ~/dotfiles/git/.git-prompt.sh
-
-
-
+source ~/dotfiles-master/.git-completion.bash
+source ~/dotfiles-master/.git-prompt.sh
 # # pretty configuration of git-prompt
 # # for details see
 # # http://www.neverstopbuilding.com/gitpro
@@ -165,8 +168,6 @@ export PS1=$BLACK"\u@\h"'$(
 set bell-style none
 xset -b
 
-#needed for ctrl-x e   or fc
-export EDITOR=vim
 
 alias gg='git status -s'
 
