@@ -35,7 +35,9 @@ fi
 case "$TERM" in
     xterm-color) color_prompt=yes;;
 esac
-export TERM="xterm-256color"
+#xterm-256color causes problem: if you start vim from tmux, it is started in replace mode
+#export TERM="xterm-256color"
+export TERM="screen-256color-s"
 
 # uncomment for a colored prompt, if the terminal has the capability; turned
 # off by default to not distract the user: the focus in a terminal window
@@ -124,8 +126,6 @@ else
     export LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:${HOME}/local/lib
 fi
 
-
-export TERM="xterm-256color"
 
 source ~/dotfiles-master/.git-completion.bash
 source ~/dotfiles-master/.git-prompt.sh
