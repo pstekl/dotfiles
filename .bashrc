@@ -127,8 +127,9 @@ else
 fi
 
 
-source ~/dotfiles-master/.git-completion.bash
-source ~/dotfiles-master/.git-prompt.sh
+
+source ~/dotfiles/git/.git-completion.bash
+source ~/dotfiles/git/.git-prompt.sh
 # # pretty configuration of git-prompt
 # # for details see
 # # http://www.neverstopbuilding.com/gitpro
@@ -168,8 +169,13 @@ export PS1=$BLACK"\u@\h"'$(
 set bell-style none
 xset -b
 
+xrdb -merge .Xdefaults
+
+#for SSO SAPGUI JAVA
+export SNC_LIB=/home/d065064/ssoclient_skript/libsapcrypto.so
+export SNC_LIB_64=/home/d065064/ssoclient_skript/libsapcrypto.so
+export SECUDIR=/dev/shm/ssoclient-2065064/
 
 alias gg='git status -s'
-
 
 alias essen='figlet Was gibt es heute zu essen? | cowsay -nf vigor2'

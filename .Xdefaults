@@ -1,0 +1,616 @@
+
+
+!========== emacs ===========================
+
+
+! UI elements
+!Emacs.menuBar: 0
+!Emacs.toolBar: 0
+Emacs.verticalScrollBars: off
+! Font settings
+!Emacs.FontBackend: xft,x
+!Emacs.FontBackend: x
+!Emacs.font: Inconsolata LGC:size=30
+!Emacs.font: Inconsolata
+Emacs.font: Inconsolata:size=16:antialise:true
+Emacs.fontBackend: xft
+
+
+
+
+
+
+
+
+!=========== xterm ================
+
+!!! --- other settings --------------------------------------------------------------------------------------------
+
+xterm*borderWidth: 20
+*saveLines: 16384
+!xterm*vt100*geometry: 100x60
+xterm*loginShell: true
+
+
+
+!xterm*ttyModes:                 erase ^H intr ^C dsusp ^Z kill ^X
+!!! ---------------------------------------------------------------------------------------------------------------
+
+
+
+
+!!! --- Keyboard --------------------------------------------------------------------------------------------------
+
+!! We want a 8bit clean xterm
+!*eightBitInput:        true
+*eightBitOutput:       true
+! Fix alt-key inputting
+XTerm*metaSendsEscape: true
+XTerm*eightBitInput: false
+!! If Alt is not Meta use it for emacs line editing of e.g. bash
+*altIsNotMeta:     true
+XTerm*altSendsEscape:   true
+! if deleteIsDEL: true   then del key behaves like backspace
+*deleteIsDEL:          false
+XTerm.vt100.metaSendsEscape: true
+
+!!! ----------------------------------------------------------------------------------------------------------------
+
+
+
+
+!!! --- Selection --------------------------------------------------------------------------------------------------
+
+!what is selected by double click mouse, moved in charachter class 48
+xterm*charClass:                        36:48,45-47:48,126:48
+! Allow selecting email/url by double-click
+!XTerm*charClass: 33:48,37-38:48,45-47:48,64:48,58:48,126:48,61:48,63:48,43:48,35:48
+! Here is a pattern that is useful for double-clicking on a URL:
+!*charClass: 33:48,35:48,37-38:48,43-47:48,58:48,61:48,63-64:48,95:48,126:48
+!xterm*charClass: 33:48,35:48,37:48,43:48,45-47:48,64:48,95:48,126:48
+! Alternatively,
+!*on2Clicks: regex [[:alpha:]]+://([[:alnum:]!#+,./=?@_~-]|(%[[:xdigit:]][[:xdigit:]]))+
+
+! Trim trailing spaces
+XTerm*trimSelection: true
+
+!!! ----------------------------------------------------------------------------------------------------------------
+
+
+
+
+!!! --- Colors -----------------------------------------------------------------------------------------------------
+
+!Specifies whether or not escape sequences to change colors assigned to different attributes are recognized.
+xterm*dynamicColors:      true
+*background:       LightYellow2
+*foreground:       #000000
+xterm*background: LightYellow2 
+xterm*foreground: black
+!xterm*background: grey90
+!xterm*foreground: black
+!*background: MidnightBlue
+!*foreground:       #FFFFFF
+
+!!! ----------------------------------------------------------------------------------------------------------------
+
+
+!!! --- Scrollbar --------------------------------------------------------------------------------------------------
+
+!specifies whether or not scrolling should be done asynchronously.
+xterm*multiScroll:      on
+!Enable (or disable) jump scrolling
+xterm*jumpScroll:       on
+!XTerm*scrollBar: False  = do not show scrollbar
+xterm*scrollBar: False
+!*Scrollbar*width:      16
+!*Scrollbar*height:     16
+!*Scrollbar*shadowWidth:    2
+!*Scrollbar*borderWidth:    3
+!Specifies whether or not pressing a key should automatically cause the scrollbar to go to the bottom of the scrolling region.
+!*scrollKey:            true
+
+!!! ----------------------------------------------------------------------------------------------------------------
+
+
+
+!!! ---- Fonts and Encoding ----------------------------------------------------------------------------------------
+
+XTerm*utf8: 2
+XTerm*locale: True
+XTerm*utf8Title: True
+XTerm*renderFont: True
+XTerm*preeditType: Root
+XTerm*xftAntialias: true
+!XTerm*faceName: xft:Inconsolata-12         old command?
+!XTerm*faceName: Inconsolata
+XTerm*faceName: Liberation Mono
+XTerm*faceSize: 12
+!xterm*font:     *-fixed-*-*-*-18-*
+!XTerm*faceName: Bitstream Vera Serif Mono
+!xterm*faceSize: 11
+xterm*boldMode: false
+XTerm.VT100*boldMode:  false
+!!! ----------------------------------------------------------------------------------------------------------------
+
+xterm.*backarrowKey: false
+
+!*ttyModes:         erase 
+!*VT100.Translations: \
+!        #override <Key>BackSpace: string(0x7f) \n\
+!                  <Key>Delete:    string(0x1b) string("[3~") \n\
+!                          <Key>Home:      string("\033[1~") \n\
+!                                  <Key>End:       string("\033[4~")
+
+xterm.vt100.Translations:       #override \
+                <Key>F12:     string("echo test 12 ")\n\
+                <Key>F11:     string("echo test 11 ")\n\
+                <Key>F10:     string("echo test 10 ")\n\
+                <Key>F9:      string("echo test 9 ")\n\
+                <Key>F8:      string("/bin/tcsh ")\n\
+                <Key>F7:      string(" echo test 4 ")\n\
+                <Key>F6:      string("echo test 6  ")\n\
+                <Key>F5:      string("~/scripts/adjust_F1.csh")\n\
+                <Key>F4:       string("alias o 'tasset \\!* ok'; alias r 'tasset \\!* restart'; \n")\n\
+                <Key>F3:       string("cd /hana/shared/H50/hdbstudio;./hdbstudio -data /tmp/philipp;")\n\
+		        <Key>F2:      string("hdbsql -U DEFAULT -m -z -j -A")\n\
+                <Key>F1:   string("if ($TERM != screen) setenv TERM xterm;setenv DISPLAY 10.19.90.137:0.0;xset b off;set autologout=0;alias c clear;alias h history;alias r 'eval `resize -c`>&/dev/null';alias p '/bin/ps -ef|sort -b';alias ll 'ls -altr' \n")\n
+
+
+
+
+
+
+
+
+
+
+! !  XTerm*VT100.translations: #override \n\
+! !                 <Key>Home: string(0x1b) string("[3~") \n \
+! !                 <Key>End: string(0x1b) string("[4~") \n
+!         vt220*VT100.translations: #override \n\
+!         ~Shift  <Key>F1: string(0x1b) string("OP") \n \
+!         ~Shift  <Key>F2: string(0x1b) string("OQ") \n \
+!         ~Shift  <Key>F3: string(0x1b) string("OR") \n \
+!         ~Shift  <Key>F4: string(0x1b) string("OS") \n \
+!         ~Shift  <Key>F5: string(0x1b) string("[16~") \n \
+!         ~Shift  <Key>F6: string(0x1b) string("[17~") \n \
+!         ~Shift  <Key>F7: string(0x1b) string("[18~") \n \
+!         ~Shift  <Key>F8: string(0x1b) string("[19~") \n \
+!         ~Shift  <Key>F9: string(0x1b) string("[20~") \n \
+!         ~Shift  <Key>F10: string(0x1b) string("[21~") \n \
+!         ~Shift  <Key>F11: string(0x1b) string("[28~") \n \
+!         ~Shift  <Key>F12: string(0x1b) string("[29~") \n \
+!         Shift   <Key>F1: string(0x1b) string("[23~") \n \
+!         Shift   <Key>F2: string(0x1b) string("[24~") \n \
+!         Shift   <Key>F3: string(0x1b) string("[25~") \n \
+!         Shift   <Key>F4: string(0x1b) string("[26~") \n \
+!         Shift   <Key>F5: string(0x1b) string("[K~") \n \
+!         Shift   <Key>F6: string(0x1b) string("[31~") \n \
+!         Shift   <Key>F7: string(0x1b) string("[31~") \n \
+!         Shift   <Key>F8: string(0x1b) string("[32~") \n \
+!         Shift   <Key>F9: string(0x1b) string("[33~") \n \
+!         Shift   <Key>F10: string(0x1b) string("[34~") \n \
+!         Shift   <Key>F11: string(0x1b) string("[28~") \n \
+!         Shift   <Key>F12: string(0x1b) string("[29~") \n \
+! !                 <Key>Print: string(0x1b) string("[32~") \n\
+! !                 <Key>Cancel: string(0x1b) string("[33~") \n\
+! !                 <Key>Pause: string(0x1b) string("[34~") \n\
+! !                 <Key>Insert: string(0x1b) string("[2~") \n\
+! !                 <Key>Delete: string(0x1b) string("[3~") \n\
+! !                 <Key>Home: string(0x1b) string("[1~") \n\
+! !                 <Key>End: string(0x1b) string("[4~") \n\
+! !                 <Key>Prior: string(0x1b) string("[5~") \n\
+! !                 <Key>Next: string(0x1b) string("[6~") \n\
+! !                 <Key>BackSpace: string(0x7f) \n\
+! !                 <Key>Num_Lock: string(0x1b) string("OP") \n\
+! !                 <Key>KP_Divide: string(0x1b) string("Ol") \n\
+! !                 <Key>KP_Multiply: string(0x1b) string("Om") \n\
+! !                 <Key>KP_Subtract: string(0x1b) string("OS") \n\
+! !                 <Key>KP_Add: string(0x1b) string("OM") \n\
+! !                 <Key>KP_Enter: string(0x1b) string("OM") \n\
+! !                 <Key>KP_Decimal: string(0x1b) string("On") \n\
+! !                 <Key>KP_0: string(0x1b) string("Op") \n\
+! !                 <Key>KP_1: string(0x1b) string("Oq") \n\
+! !                 <Key>KP_2: string(0x1b) string("Or") \n\
+! !                 <Key>KP_3: string(0x1b) string("Os") \n\
+! !                 <Key>KP_4: string(0x1b) string("Ot") \n\
+! !                 <Key>KP_5: string(0x1b) string("Ou") \n\
+! !                 <Key>KP_6: string(0x1b) string("Ov") \n\
+! !                 <Key>KP_7: string(0x1b) string("Ow") \n\
+! !                 <Key>KP_8: string(0x1b) string("Ox") \n\
+! !                 <Key>KP_9: string(0x1b) string("Oy") \n
+
+!         !       <Key>Up: string(0x1b) string("[A") \n\
+!         !       <Key>Down: string(0x1b) string("[B") \n\
+!         !       <Key>Right: string(0x1b) string("[C") \n\
+!         !       <Key>Left: string(0x1b) string("[D") \n\
+
+
+
+
+
+
+
+! xterm.vt100.Translations:       #override \
+!   <Key>Break:                   string(0x1b)\n\
+!   Meta<Key>F1:                  string("setenv TERM vt100; set autologout=0; alias c clear; alias h history; alias r 'eval `resize -c`>&/dev/null'; alias p '/bin/ps -ef | sort -b'; alias ll 'ls -ltr \\!*'\n\
+! ")\n\
+!   Meta<Key>F2:                  string("setenv TERM vt100; set autologout=0; alias c clear; alias h history; alias r 'eval `resize -c`>&/dev/null'; alias p '/bin/ps -ef | sort -b'; alias ll 'ls -ltr \\!*'\n\
+! ")\n\
+!   Meta<Key>F3:                  string("echo test")\n
+
+
+
+! ! always use iso10646-1 fonts and luit for non-UTF-8 locales:
+! *locale: checkfont
+! *localeFilter: /usr/bin/luitx
+
+! *fontMenu.Label:  VT Fonts
+! *fontMenu*fontdefault*Label:	Default
+! *VT100.font:		-misc-fixed-medium-r-semicondensed-*-13-120-75-75-c-60-iso10646-1
+! *VT100.wideFont:	-misc-fixed-medium-r-normal-*-13-120-75-75-c-120-iso10646-1
+
+! *fontMenu*font1*Label:	Unicode Best
+! *VT100.font1:		-misc-fixed-medium-r-normal-*-18-120-100-100-c-90-iso10646-1
+! *VT100.wideFont1:	-misc-fixed-medium-r-normal-*-18-120-100-100-c-180-iso10646-1
+! !*VT100.font1:		nil2
+! !*VT100.wideFont1:
+! *IconFont:		nil2
+! *fontMenu*font2*Label:	Tiny
+! !*VT100.font2:		5x7
+! *VT100.font2:		-misc-fixed-medium-r-normal--7-70-75-75-c-50-iso10646-1
+! !*VT100.widefont2:
+! *fontMenu*font3*Label:	Small
+! !*VT100.font3:		6x10
+! *VT100.font3:		-misc-fixed-medium-r-normal--10-100-75-75-c-60-iso10646-1
+! !*VT100.wideFont3:
+! *fontMenu*font4*Label:	Medium
+! !*VT100.font4:		7x13
+! *VT100.font4:		-misc-fixed-medium-r-semicondensed-*-13-120-75-75-c-60-iso10646-1
+! *VT100.wideFont4:	-misc-fixed-medium-r-normal-*-13-120-75-75-c-120-iso10646-1
+! *fontMenu*font5*Label:	Large
+! !*VT100.font5:		9x15
+! *VT100.font5:		-misc-fixed-medium-r-normal--15-140-75-75-c-90-iso10646-1
+! !*VT100.wideFont5:
+! *fontMenu*font6*Label:	Huge
+! !*VT100.font6:		10x20
+! *VT100.font6:		-misc-fixed-medium-r-normal-*-20-200-75-75-c-100-iso10646-1
+! *VT100.wideFont6:      -misc-fixed-medium-r-normal-*-20-200-75-75-c-200-iso10646-1
+! *fontMenu*fontescape*Label:	Escape Sequence
+! *fontMenu*fontsel*Label:	Selection
+! !fontescape and fontsel overridden by application
+! *fontMenu*font-linedrawing*Label: Line-Drawing Characters
+! !*fontMenu*font-doublesize*Label: Doublesized Characters
+! *fontMenu*font-loadable*Label:	VT220 Soft Fonts
+! *fontMenu*render-font*Label:	TrueType Fonts
+! *fontMenu*utf8-mode*Label:	UTF-8
+! *fontMenu*utf8-title*Label:	UTF-8 Titles
+
+! ! upstream configuration, which simply has broken our xterm font configuration completely
+! !*VT100.utf8Fonts.font2:	-misc-fixed-medium-r-normal--8-80-75-75-c-50-iso10646-1
+! !*VT100.utf8Fonts.font:	-misc-fixed-medium-r-semicondensed--13-120-75-75-c-60-iso10646-1
+! !*VT100.utf8Fonts.font3:	-misc-fixed-medium-r-normal--14-130-75-75-c-70-iso10646-1
+! !*VT100.utf8Fonts.font4:	-misc-fixed-medium-r-normal--13-120-75-75-c-80-iso10646-1
+! !*VT100.utf8Fonts.font5:	-misc-fixed-medium-r-normal--18-120-100-100-c-90-iso10646-1
+! !*VT100.utf8Fonts.font6:	-misc-fixed-medium-r-normal--20-200-75-75-c-100-iso10646-1
+
+! *tekMenu.Label:  Tek Options
+! *tekMenu*tektextlarge*Label:  Large Characters
+! *tekMenu*tektext2*Label:  #2 Size Characters
+! *tekMenu*tektext3*Label:  #3 Size Characters
+! *tekMenu*tektextsmall*Label:  Small Characters
+! *tekMenu*tekpage*Label:  PAGE
+! *tekMenu*tekreset*Label:  RESET
+! *tekMenu*tekcopy*Label:  COPY
+! *tekMenu*vtshow*Label:  Show VT Window
+! *tekMenu*vtmode*Label:  Switch to VT Mode
+! *tekMenu*tekhide*Label:  Hide Tek Window
+
+! *tek4014*fontLarge: 9x15
+! *tek4014*font2: 8x13
+! *tek4014*font3: 6x13
+! *tek4014*fontSmall: 6x10
+
+
+
+! ! These resources reduce space around the menubar, by eliminating padding in
+! ! the enclosing form (Thickness) and the border of the Box which represents
+! ! the menubar widget.
+! *form.Thickness: 0
+! *menubar.borderWidth: 0
+
+! ! If we wanted to eliminate the border of the popup menus, we could do this
+! ! instead, since they are children of the menubar:
+! !*menubar*borderWidth: 0
+
+! ! Eliminate the border of the buttons in the menubar, so the only line around
+! ! the text is for the highlighted button:
+! *MenuButton*borderWidth: 0
+
+! ! Set a border for the menus to make them simpler to distinguish against the
+! ! vt100 widget:
+! *SimpleMenu*borderWidth: 2
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+! *SimpleMenu*BackingStore: NotUseful
+! *SimpleMenu*menuLabel.font: -adobe-helvetica-bold-r-normal--*-120-*-*-*-*-iso*-*
+! *SimpleMenu*menuLabel.vertSpace: 	100
+! *SimpleMenu*HorizontalMargins: 16
+! *SimpleMenu*Sme.height:	16
+
+! *SimpleMenu*Cursor: left_ptr
+
+! *mainMenu.Label:  Main Options
+! *mainMenu*toolbar*Label:  Toolbar
+! *mainMenu*securekbd*Label:  Secure Keyboard
+! *mainMenu*allowsends*Label:  Allow SendEvents
+! *mainMenu*redraw*Label:  Redraw Window
+! *mainMenu*logging*Label:  Log to File
+! *mainMenu*print*Label:  Print Window
+! *mainMenu*print-redir*Label:  Redirect to Printer
+! *mainMenu*8-bit control*Label: 8-Bit Controls
+! *mainMenu*backarrow key*Label: Backarrow Key (BS/DEL)
+! *mainMenu*num-lock*Label: Alt/NumLock Modifiers
+! *mainMenu*alt-esc*Label: Alt Sends Escape
+! *mainMenu*meta-esc*Label: Meta Sends Escape
+! *mainMenu*delete-is-del*Label: Delete is DEL
+! *mainMenu*oldFunctionKeys*Label: Old Function-Keys
+! *mainMenu*sunFunctionKeys*Label: Sun Function-Keys
+! *mainMenu*sunKeyboard*Label: VT220 Keyboard
+! *mainMenu*hpFunctionKeys*Label: HP Function-Keys
+! *mainMenu*scoFunctionKeys*Label: SCO Function-Keys
+! *mainMenu*tcapFunctionKeys*Label: Termcap Function-Keys
+! *mainMenu*suspend*Label:  Send STOP Signal
+! *mainMenu*continue*Label:  Send CONT Signal
+! *mainMenu*interrupt*Label:  Send INT Signal
+! *mainMenu*hangup*Label:  Send HUP Signal
+! *mainMenu*terminate*Label:  Send TERM Signal
+! *mainMenu*kill*Label:  Send KILL Signal
+! *mainMenu*quit*Label:  Quit
+
+! *vtMenu.Label:  VT Options
+! *vtMenu*scrollbar*Label:  Enable Scrollbar
+! *vtMenu*jumpscroll*Label:  Enable Jump Scroll
+! *vtMenu*reversevideo*Label:  Enable Reverse Video
+! *vtMenu*autowrap*Label:  Enable Auto Wraparound
+! *vtMenu*reversewrap*Label:  Enable Reverse Wraparound
+! *vtMenu*autolinefeed*Label:  Enable Auto Linefeed
+! *vtMenu*appcursor*Label:  Enable Application Cursor Keys
+! *vtMenu*appkeypad*Label:  Enable Application Keypad
+! *vtMenu*scrollkey*Label:  Scroll to Bottom on Key Press
+! *vtMenu*scrollttyoutput*Label:  Scroll to Bottom on Tty Output
+! *vtMenu*allow132*Label: Allow 80/132 Column Switching
+! *vtMenu*keepSelection*Label: Keep Selection
+! *vtMenu*selectToClipboard*Label: Select to Clipboard
+! *vtMenu*cursesemul*Label:  Enable Curses Emulation
+! *vtMenu*visualbell*Label:  Enable Visual Bell
+! *vtMenu*bellIsUrgent*Label:  Enable Bell Urgency
+! *vtMenu*poponbell*Label:  Enable Pop on Bell
+! *vtMenu*cursorblink*Label: Enable Blinking Cursor
+! *vtMenu*titeInhibit*Label:  Enable Alternate Screen Switching
+! *vtMenu*activeicon*Label: Enable Active Icon
+! *vtMenu*softreset*Label:  Do Soft Reset
+! *vtMenu*hardreset*Label:  Do Full Reset
+! *vtMenu*clearsavedlines*Label:  Reset and Clear Saved Lines
+! *vtMenu*tekshow*Label:  Show Tek Window
+! *vtMenu*tekmode*Label:  Switch to Tek Mode
+! *vtMenu*vthide*Label:  Hide VT Window
+! *vtMenu*altscreen*Label:  Show Alternate Screen
+
+
+
+
+
+! If xterm is built with a toolbar, the widget hierarchy looks like this,
+! showing widget name / class names.  The complete menu hierarchy is built
+! at startup because it is needed to make the layout work for the menubar:
+!
+!	xterm/XTerm
+!		form/Form
+!			menubar/Box
+!				mainMenuButton/MenuButton
+!					mainMenu/SimpleMenu
+!						menuLabel/SmeBSB
+!						toolbar/SmeBSB
+!						...
+!					vtMenu/SimpleMenu
+!						menuLabel/SmeBSB
+!						scrollbar/SmeBSB
+!						...
+!					fontMenu/SimpleMenu
+!						menuLabel/SmeBSB
+!						fontdefault/SmeBSB
+!						...
+!					tekMenu/SimpleMenu
+!						menuLabel/SmeBSB
+!						fontdefault/SmeBSB
+!						...
+!			vt100/VT100
+!			tektronix/TopLevelShell
+!				shellext/VendorShellExt
+!					tek4014/Tek4014
+!
+! If built without a toolbar, the widget hierarchy is simpler, because there
+! is no form, and the popup menu widgets are created only when they are first
+! used.
+!
+!	xterm/XTerm
+!		shellext/VendorShellExt
+!			mainMenu/SimpleMenu
+!				menuLabel/SmeBSB
+!				...
+!			...
+!		vt100/VT100
+!		tektronix/TopLevelShell
+!			shellext/VendorShellExt
+!				tek4014/Tek4014
+!
+! A more complete list of the widget/class names can be obtained using editres
+! to dump a file.  Some widget names are not available until the corresponding
+! menu has been created.
+
+
+
+
+
+! ! =========== Default for hpterm ================
+
+! hpterm*borderWidth:             10
+! hpterm*background:              MidnightBlue
+! hpterm*foreground:              white
+! hpterm*font:                    iso1.20b
+! hpterm*cursorColor:             Yellow
+! hpterm*pointerColor:            Yellow
+! hpterm*keyboardFocusPolicy:     pointer
+! hpterm*ttyModes:                erase ^H intr ^C dsusp ^Z kill ^X
+
+! HPterm*scrollBar*background:	black
+! HPterm*scrollBar*foreground:	LightGray
+! HPterm*softkey*background:	LightGray
+! HPterm*softkey*foreground:	Black
+! HPterm*cursor:	black
+! HPterm*Foreground:	black
+! HPterm*Background:	Wheat
+! HPterm*pointerColor:	black
+! HPterm*Paste:	middle
+! HPterm*Cut:	left
+! HPterm*makeColors:	none
+! HPterm*scrollBar:	true
+
+
+
+
+
+
+! ! =========== xlock ================
+! XLock.rotor.batchcount:	4
+! XLock.rotor.delay:	10000
+! XLock.rotor.saturation:	0.4
+! XLock.blank.batchcount:	1
+! XLock.blank.delay:	5000000
+! XLock.blank.saturation:	1
+! XLock.image.batchcount:	8
+! XLock.image.delay:	2000000
+! XLock.image.saturation:	0.3
+! XLock.swarm.batchcount:	100
+! XLock.swarm.delay:	10000
+! XLock.swarm.saturation:	1
+! XLock.pyro.batchcount:	40
+! XLock.pyro.delay:	15000
+! XLock.pyro.saturation:	1
+! XLock.qix.batchcount:	64
+! XLock.qix.delay:	30000
+! XLock.qix.saturation:	1
+! XLock.flame.batchcount:	20
+! XLock.flame.delay:	10000
+! XLock.flame.saturation:	1
+! XLock.hop.batchcount:	1000
+! XLock.hop.delay:	0
+! XLock.hop.saturation:	1
+! XLock.life.batchcount:	100
+! XLock.life.delay:	1000000
+! XLock.life.saturation:	1
+! XLock.password:	Password:
+! XLock.validate:	mal schauen...
+! XLock.info:	Kennst Du das Passwort?
+! XLock.verbose:	off
+! XLock.background:	Black
+! XLock.invalid:	daneben...probs doch nochmal
+! XLock.remote:	off
+! XLock.foreground:	Red
+! XLock.mode:	pyro
+! XLock.echokeys:	off
+! XLock.mono:	off
+! XLock.enablesaver:	off
+! XLock.font:	-b&h-lucida-medium-r-normal-sans-24-*-*-*-*-*-iso8859-1
+! XLock.usefirst:	off
+! XLock.nice:	10
+! XLock.allowaccess:	off
+! XLock.timeout:	30
+! XLock.nolock:	off
+! XLock.allowroot:	off
+! XLock.username:	Name:
+
+
+
+
+! ! =========== xload ================
+
+! xload*foreground:               White
+! xload*background:               green
+! xload*borderColor:              Navy
+! xload*Highlight:                Light steel blue
+
+
+
+
+! ! =========== xclock ===============
+
+! xclock*borderWidth:             6
+! xclock*foreground:              red
+! xclock*background:              Yellow
+! xclock*borderColor:             Green
+! xclock*Highlight:               DarkSlateGray
+! xclock*hands:                   MidnightBlue
+! xclock*analog:                  True
+
+
+
+
+
+
+
+
+
+
+
+
+
+! Copy and paste with clipboard
+!XTerm*translations: #override \
+!	Ctrl Shift <KeyPress> C: copy-selection(CLIPBOARD) \n\
+!	Ctrl Shift <KeyPress> V: insert-selection(CLIPBOARD)
+
+
+! ! Tango Theme
+
+! XTerm*background: #1C1C1C
+! XTerm*foreground: #DEDEDE
+
+! ! black
+! XTerm*color0  : #2E3436
+! XTerm*color8  : #555753
+! ! red
+! !XTerm*color1  : #CC0000
+! !XTerm*color9  : #EF2929
+! ! green
+! !XTerm*color2  : #4E9A06
+! !XTerm*color10 : #8AE234
+! ! yellow
+! XTerm*color3  : #C4A000
+! XTerm*color11 : #FCE94F
+! ! blue
+! XTerm*color4  : #3465A4
+! XTerm*color12 : #729FCF
+! ! magenta
+! XTerm*color5  : #75507B
+! XTerm*color13 : #AD7FA8
+! ! cyan
+! XTerm*color6  : #06989A
+! XTerm*color14 : #34E2E2
+! ! white
+! XTerm*color7  : #D3D7CF
+! XTerm*color15 : #EEEEEC
