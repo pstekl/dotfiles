@@ -179,3 +179,7 @@ export SECUDIR=/dev/shm/ssoclient-2065064/
 alias gg='git status -s'
 
 alias essen='figlet Was gibt es heute zu essen? | cowsay -nf vigor2'
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
