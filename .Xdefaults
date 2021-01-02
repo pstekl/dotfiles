@@ -149,7 +149,7 @@ xterm.vt100.Translations:       #override \
                 <Key>F9:      string("echo test 9 ")\n\
                 <Key>F8:      string("/bin/tcsh ")\n\
                 <Key>F7:      string(" echo test 4 ")\n\
-                <Key>F6:      string("echo test 6  ")\n\
+                <Key>F6:      string("printf "\033k%s\033\\" $HOSTNAME; \n")\n\
                 <Key>F5:      string("~/scripts/adjust_F1.csh")\n\
                 <Key>F4:       string("alias o 'tasset \\!* ok'; alias r 'tasset \\!* restart'; \n")\n\
                 <Key>F3:       string("cd /hana/shared/H50/hdbstudio;./hdbstudio -data /tmp/philipp;")\n\

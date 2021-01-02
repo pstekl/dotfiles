@@ -1,4 +1,5 @@
-# ~/.bashrc: executed by bash(1) for non-login shells.# see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
+# ~/.bashrc: executed by bash(1) for non-login shells.
+# see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
 # for examples
 
 # If not running interactively, don't do anything
@@ -169,12 +170,20 @@ export PS1=$BLACK"\u@\h"'$(
 set bell-style none
 xset -b
 
-xrdb -merge .Xdefaults
+
+#Disable Ctrl S XON/XOFF    if not terminal is suspeneded with CTRL S and resumed with CTRL Q
+[[ $- == *i* ]] && stty -ixon
+
+xrdb -merge ~/.Xdefaults
 
 #for SSO SAPGUI JAVA
 export SNC_LIB=/home/d065064/ssoclient_skript/libsapcrypto.so
 export SNC_LIB_64=/home/d065064/ssoclient_skript/libsapcrypto.so
 export SECUDIR=/dev/shm/ssoclient-2065064/
+
+export EDITOR=vim
+export VISUAL=vim
+
 
 alias gg='git status -s'
 
